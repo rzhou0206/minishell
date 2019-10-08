@@ -1,5 +1,4 @@
 #define _GNU_SOURCE
-
 #include <sys/wait.h>
 #include <sys/utsname.h>
 #include <stdio.h>
@@ -14,11 +13,6 @@ char prompt[]="sh>";
 
 int main();
 
-int cloned(void* args) {
-  printf("Hello World\n");
-  return 0;
-}
-
 void eval(char *cmdline) {
 
   int maxnum = 1024;
@@ -26,7 +20,23 @@ void eval(char *cmdline) {
   char *cmdstring=strtok(cmdline," ");
   int i=0;
   while (cmdstring){
-    cmdchar[i] = cmdstring;
+    if(cmdstring[0] == '$') {
+      if(cmdstring[1] == '$') {
+	int pid1 = getpid();
+	cmdchar[i] = malloc(10);
+	sprintf(cmdchar[i], "%d", pid1);
+      } else {
+	char* env = getenv(cmdstring+1);
+	if(env) {
+	  cmdchar[i] = malloc(strlen(env));
+	  strcpy(cmdchar[i], env);
+	} else {
+	  cmdchar[i] = cmdstring;
+	}
+      }
+    } else {
+      cmdchar[i] = cmdstring;
+    }
     cmdstring=strtok(NULL," ");
     i++;
   }
@@ -40,34 +50,71 @@ void eval(char *cmdline) {
     } else {
       printf("cd: too many arguments\n");
     }
-  }
-  if(i>0 && !strcmp(cmdchar[0],"clone")){
-    if(i==1) {
-      printf("usage: clone arg1\n arg1 must be one of newipc ,newuts, newuser, newnet, newns\n");
-    }
-    if(i==2){
-      char* stack;
-      char* stackTop;
-      stack = malloc(1024 * 1024);
-      stackTop = stack + 1024 * 1024;
-      int pid = -1;
-      int options = 0;
-      int i = 1;
-      printf("searching for arguments\n");
-      while(cmdchar[i]) {
-	if(!strcmp(cmdchar[i],"newipc")) {
-	  options |= CLONE_NEWIPC;
-	}
-	printf("at i = %d, found %s\n", i, cmdchar[i]);
-	i++;
+  } else if(i>0 && !strcmp(cmdchar[0],"clone")){
+    char* stack;
+    char* stackTop;
+    stack = malloc(1024 * 1024);
+    stackTop = stack + 1024 * 1024;
+    pid_t pid;
+    int options = 0;
+    int i = 1;
+    //printf("searching for arguments\n");
+    while(cmdchar[i]) {
+      if(!strcmp(cmdchar[i],"newipc")) {
+  	options |= CLONE_NEWIPC;
+      } else if(!strcmp(cmdchar[i], "childtid")) {
+  	options |= CLONE_CHILD_CLEARTID;
+      } else if(!strcmp(cmdchar[i], "childsettid")) {
+  	options |= CLONE_CHILD_SETTID;
+      } else if(!strcmp(cmdchar[i], "files")) {
+  	options |= CLONE_FILES;
+      } else if(!strcmp(cmdchar[i], "fs")) {
+  	options |= CLONE_FS;
+      } else if(!strcmp(cmdchar[i], "io")) {
+  	options |= CLONE_IO;
+      } else if(!strcmp(cmdchar[i], "newnet")) {
+  	options |= CLONE_NEWNET;
+      } else if(!strcmp(cmdchar[i], "newns")) {
+  	options |= CLONE_NEWNS;
+      } else if(!strcmp(cmdchar[i], "newpid")) {
+  	options |= CLONE_NEWPID;
+      } else if(!strcmp(cmdchar[i], "newuser")) {
+  	options |= CLONE_NEWUSER;
+      } else if(!strcmp(cmdchar[i], "newuts")) {
+  	options |= CLONE_NEWUTS;
+      } else if(!strcmp(cmdchar[i], "parent")) {
+  	options |= CLONE_PARENT;
+      } else if(!strcmp(cmdchar[i], "parentsettid")) {
+  	options |= CLONE_PARENT_SETTID;
+      } else if(!strcmp(cmdchar[i], "ptrace")) {
+  	options |= CLONE_PTRACE;
+      } else if(!strcmp(cmdchar[i], "settls")) {
+  	options |= CLONE_SETTLS;
+      } else if(!strcmp(cmdchar[i], "sighand")) {
+  	options |= CLONE_SIGHAND;
+      } else if(!strcmp(cmdchar[i], "sysvsem")) {
+  	options |= CLONE_SYSVSEM;
+      } else if(!strcmp(cmdchar[i], "thread")) {
+  	options |= CLONE_THREAD;
+      } else if(!strcmp(cmdchar[i], "untraced")) {
+  	options |= CLONE_UNTRACED;
+      } else if(!strcmp(cmdchar[i], "vfork")) {
+  	options |= CLONE_VFORK;
+      } else if(!strcmp(cmdchar[i], "vm")) {
+  	options |= CLONE_VM;
       }
-      printf("running clone\n");
-      pid = clone(cloned, stackTop, options | SIGCHLD, cmdchar[0]);
-      printf("clone returned %d\n", pid);
-      perror("");
+      i++;
     }
-  }
-  else {
+    pid = clone(main, stackTop, options | SIGCHLD, cmdchar[0]);
+    if(pid == -1) {
+      perror("Clone failed");
+      free(stack);
+      return;
+    }
+    waitpid(pid, NULL, 0);
+  } else if(i > 0 && !strcmp(cmdchar[0], "exit")) {
+    exit(0);
+  } else {
     char* env = malloc(strlen(getenv("PATH")));
     strcpy(env, getenv("PATH"));
     char* token = strtok(env, ":");
@@ -106,6 +153,7 @@ int main() {
     cmdline[strlen(cmdline)-1]='\0';
 
     eval(cmdline);
+    //return 0;
   }  
 }
 
