@@ -60,7 +60,7 @@ void eval(char *cmdline) {
     int i = 1;
     //printf("searching for arguments\n");
     while(cmdchar[i]) {
-      if(!strcmp(cmdchar[i],"newipc")) {
+      if(!strcmp(cmdchar[i],"ipc")) {
   	options |= CLONE_NEWIPC;
       } else if(!strcmp(cmdchar[i], "childtid")) {
   	options |= CLONE_CHILD_CLEARTID;
@@ -72,15 +72,15 @@ void eval(char *cmdline) {
   	options |= CLONE_FS;
       } else if(!strcmp(cmdchar[i], "io")) {
   	options |= CLONE_IO;
-      } else if(!strcmp(cmdchar[i], "newnet")) {
+      } else if(!strcmp(cmdchar[i], "net")) {
   	options |= CLONE_NEWNET;
-      } else if(!strcmp(cmdchar[i], "newns")) {
+      } else if(!strcmp(cmdchar[i], "ns")) {
   	options |= CLONE_NEWNS;
-      } else if(!strcmp(cmdchar[i], "newpid")) {
+      } else if(!strcmp(cmdchar[i], "pid")) {
   	options |= CLONE_NEWPID;
-      } else if(!strcmp(cmdchar[i], "newuser")) {
+      } else if(!strcmp(cmdchar[i], "user")) {
   	options |= CLONE_NEWUSER;
-      } else if(!strcmp(cmdchar[i], "newuts")) {
+      } else if(!strcmp(cmdchar[i], "uts")) {
   	options |= CLONE_NEWUTS;
       } else if(!strcmp(cmdchar[i], "parent")) {
   	options |= CLONE_PARENT;
@@ -107,7 +107,7 @@ void eval(char *cmdline) {
     }
     pid = clone(main, stackTop, options | SIGCHLD, cmdchar[0]);
     if(pid == -1) {
-      perror("Clone failed");
+      perror("This is the reason why clone failed::");
       free(stack);
       return;
     }
