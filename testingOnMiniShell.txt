@@ -1,0 +1,95 @@
+Script started on Wed 09 Oct 2019 04:27:19 AM UTC
+vagrant@vagrant-ubuntu-trusty-32:~/minishell$ sh>/home/vagrant/minishell
+sh>sh>bin   dev  home        initrd.img.old  lost+found  mnt	proc  run   srv  tmp  vagrant  vmlinuz
+boot  etc  initrd.img  lib	       media	   opt	root  sbin  sys  usr  var      vmlinuz.old
+sh>ubuntu	vagrant
+sh>sh>bin   dev  home        initrd.img.old  lost+found  mnt	proc  run   srv  tmp  vagrant  vmlinuz
+boot  etc  initrd.img  lib	       media	   opt	root  sbin  sys  usr  var      vmlinuz.old
+sh>sh>bin   dev  home        initrd.img.old  lost+found  mnt	proc  run   srv  tmp  vagrant  vmlinuz
+boot  etc  initrd.img  lib	       media	   opt	root  sbin  sys  usr  var      vmlinuz.old
+sh>sh>bin   dev  home        initrd.img.old  lost+found  mnt	proc  run   srv  tmp  vagrant  vmlinuz
+boot  etc  initrd.img  lib	       media	   opt	root  sbin  sys  usr  var      vmlinuz.old
+sh>sh>a.out  minishell.c  tesingOnRaysMiniShell  testingOnMiniShell.txt  testingRayShell.txt	typescript
+sh>sh>minishell
+sh>a.out  minishell.c  tesingOnRaysMiniShell  testingOnMiniShell.txt  testingRayShell.txt	typescript
+sh>sh>Command 'midir' not found.
+sh>sh>a.out  minishell.c  tesingOnRaysMiniShell  test  testingOnMiniShell.txt  testingRayShell.txt  typescript
+sh>sh>a.out  minishell.c  tesingOnRaysMiniShell  testingOnMiniShell.txt  testingRayShell.txt	typescript
+sh>#define _GNU_SOURCE
+#include <sys/wait.h>
+#include <sys/utsname.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <sched.h>
+#include <errno.h>
+
+sh>    if (feof(stdin)){
+      printf("\n");
+      exit(0);
+    }
+    cmdline[strlen(cmdline)-1]='\0';
+
+    eval(cmdline); //read the command 
+  }  
+}
+
+sh>rm: cannot remove ‘testingOnRaysMiniShell’: No such file or directory
+sh>sh>rm: cannot remove ‘tesingRaysShell.txt’: No such file or directory
+sh>rm: cannot remove ‘tesingRayShell.txt’: No such file or directory
+sh>sh>sh>a.out  minishell.c  testingOnMiniShell.txt
+sh>$
+sh>18575
+sh>vagrant@vagrant-ubuntu-trusty-32:~/minishell$ sh>1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 08:00:27:47:5e:a0 brd ff:ff:ff:ff:ff:ff
+sh>This is the reason why clone failed::: Operation not permitted
+sh>vagrant@vagrant-ubuntu-trusty-32:~/minishell$ sh>1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 08:00:27:47:5e:a0 brd ff:ff:ff:ff:ff:ff
+sh>sh>1: lo: <LOOPBACK> mtu 65536 qdisc noop state DOWN mode DEFAULT group default 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+sh>sh>  PID TTY          TIME CMD
+18608 pts/3    00:00:00 sudo
+18609 pts/3    00:00:00 a.out
+18618 pts/3    00:00:00 ps
+sh>mnt:[4026531840]
+sh>sh>  PID TTY          TIME CMD
+18608 pts/3    00:00:00 sudo
+18609 pts/3    00:00:00 a.out
+18620 pts/3    00:00:00 a.out
+18621 pts/3    00:00:00 ps
+sh>mnt:[4026532155]
+sh>sh>18609
+sh>ls: cannot access /proc/18609/ns/*: No such file or directory
+sh>total 0
+lrwxrwxrwx 1 root root 0 Oct  9 04:44 ipc -> ipc:[4026531839]
+lrwxrwxrwx 1 root root 0 Oct  9 04:41 mnt -> mnt:[4026531840]
+lrwxrwxrwx 1 root root 0 Oct  9 04:44 net -> net:[4026531956]
+lrwxrwxrwx 1 root root 0 Oct  9 04:44 pid -> pid:[4026531836]
+lrwxrwxrwx 1 root root 0 Oct  9 04:44 user -> user:[4026531837]
+lrwxrwxrwx 1 root root 0 Oct  9 04:44 uts -> uts:[4026531838]
+sh>sh>18628
+sh>total 0
+lrwxrwxrwx 1 root root 0 Oct  9 04:45 ipc -> ipc:[4026532155]
+lrwxrwxrwx 1 root root 0 Oct  9 04:45 mnt -> mnt:[4026531840]
+lrwxrwxrwx 1 root root 0 Oct  9 04:45 net -> net:[4026531956]
+lrwxrwxrwx 1 root root 0 Oct  9 04:45 pid -> pid:[4026531836]
+lrwxrwxrwx 1 root root 0 Oct  9 04:45 user -> user:[4026531837]
+lrwxrwxrwx 1 root root 0 Oct  9 04:45 uts -> uts:[4026531838]
+sh>sh>sh>18631
+sh>total 0
+lrwxrwxrwx 1 root root 0 Oct  9 04:46 ipc -> ipc:[4026531839]
+lrwxrwxrwx 1 root root 0 Oct  9 04:46 mnt -> mnt:[4026531840]
+lrwxrwxrwx 1 root root 0 Oct  9 04:46 net -> net:[4026531956]
+lrwxrwxrwx 1 root root 0 Oct  9 04:46 pid -> pid:[4026531836]
+lrwxrwxrwx 1 root root 0 Oct  9 04:46 user -> user:[4026531837]
+lrwxrwxrwx 1 root root 0 Oct  9 04:46 uts -> uts:[4026532155]
+sh>sh>sh>a.out  minishell.c  testingOnMiniShell.txt
+sh>sh>ubuntu	vagrant
+sh>/home
+sh>sh>vagrant@vagrant-ubuntu-trusty-32:~/minishell$ 
+Script done on Wed 09 Oct 2019 04:48:40 AM UTC
