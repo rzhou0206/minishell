@@ -14,19 +14,19 @@ char prompt[]="sh>";
 int main();
 
 void eval(char *cmdline) {
-
+  // evaluate the input arguments
   int maxnum = 1024;
   char *cmdchar[maxnum];
-  char *cmdstring=strtok(cmdline," ");
+  char *cmdstring=strtok(cmdline," "); //split the input by space
   int i=0;
   while (cmdstring){
     if(cmdstring[0] == '$') {
       if(cmdstring[1] == '$') {
 	int pid1 = getpid();
 	cmdchar[i] = malloc(10);
-	sprintf(cmdchar[i], "%d", pid1);
+	sprintf(cmdchar[i], "%d", pid1); // a build-in functio, $$ is the processn ID 
       } else {
-	char* env = getenv(cmdstring+1);
+	char* env = getenv(cmdstring+1); 
 	if(env) {
 	  cmdchar[i] = malloc(strlen(env));
 	  strcpy(cmdchar[i], env);
@@ -48,7 +48,7 @@ void eval(char *cmdline) {
     } else if(i == 2) {
       chdir(cmdchar[1]);
     } else {
-      printf("cd: too many arguments\n");
+      printf("cd: too many arguments\n");// make a build-in function "cd" to change the dirctory. 
     }
   } else if(i>0 && !strcmp(cmdchar[0],"clone")){
     char* stack;
@@ -105,14 +105,14 @@ void eval(char *cmdline) {
       }
       i++;
     }
-    pid = clone(main, stackTop, options | SIGCHLD, cmdchar[0]);
+    pid = clone(main, stackTop, options | SIGCHLD, cmdchar[0]); // a built-in function for clone() calls
     if(pid == -1) {
       perror("This is the reason why clone failed::");
       free(stack);
       return;
     }
     waitpid(pid, NULL, 0);
-  } else if(i > 0 && !strcmp(cmdchar[0], "exit")) {
+  } else if(i > 0 && !strcmp(cmdchar[0], "exit")) { // a built-in function for exit the minishell
     exit(0);
   } else {
     char* env = malloc(strlen(getenv("PATH")));
@@ -152,8 +152,7 @@ int main() {
     }
     cmdline[strlen(cmdline)-1]='\0';
 
-    eval(cmdline);
-    //return 0;
+    eval(cmdline); //read the command 
   }  
 }
 
