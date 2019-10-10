@@ -1,0 +1,300 @@
+Script started on Thu 10 Oct 2019 02:09:04 AM UTC
+]0;vagrant@vagrant-ubuntu-trusty-32: ~/minishellvagrant@vagrant-ubuntu-trusty-32:~/minishell$ a.out.a.out/a.out
+sh>date
+Thu Oct 10 02:09:15 UTC 2019
+sh>ls
+a.out  finalTesting  minishell.c  testingOnRaysMinishell
+sh>ls ..  -l
+total 28
+-rwxrwxr-x 1 vagrant vagrant 12448 Oct  9 03:34 a.out
+-rw-rw-r-- 1 vagrant vagrant  3767 Oct 10 02:08 finalTesting
+-rw-rw-r-- 1 vagrant vagrant  4298 Oct  9 03:50 minishell.c
+-rw-rw-r-- 1 vagrant vagrant     0 Oct 10 02:09 testingOnRaysMinishell
+sh>cd ..
+sh>ls
+dead.letter  minishell
+sh>cd /
+sh>ls
+bin  boot  dev	etc  home  initrd.img  initrd.img.old  lib  lost+found	media  mnt  opt  proc  root  run  sbin	srv  sys  tmp  usr  vagrant  var  vmlinuz  vmlinuz.old
+sh>cd / home/vagrant/minishell
+sh>ls
+a.out  finalTesting  minishell.c  testingOnRaysMinishell
+sh>rm -rf tesing        finalTesting
+sh>ls
+a.out  minishell.c  testingOnRaysMinishell
+sh>hae  ead minishell.c
+#define _GNU_SOURCE
+#include <sys/wait.h>
+#include <sys/utsname.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <sched.h>
+#include <errno.h>
+
+sh>ra  echo $$
+26251
+sh>random command
+Command 'random' not found.
+sh>pwd
+/home/vagrant/minishell
+sh>col  lone net
+This is the reason why clone failed::: Operation not permitted
+sh>exit
+]0;vagrant@vagrant-ubuntu-trusty-32: ~/minishellvagrant@vagrant-ubuntu-trusty-32:~/minishell$ sudo ./a.out
+sh>ip link
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 08:00:27:47:5e:a0 brd ff:ff:ff:ff:ff:ff
+sh>clone net
+sh>ip link
+1: lo: <LOOPBACK> mtu 65536 qdisc noop state DOWN mode DEFAULT group default 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+sh>exit
+sh>ls -l       echo $$
+26266
+sh>ls -l /proc/26266/ns
+total 0
+lrwxrwxrwx 1 root root 0 Oct 10 02:15 ipc -> ipc:[4026531839]
+lrwxrwxrwx 1 root root 0 Oct 10 02:15 mnt -> mnt:[4026531840]
+lrwxrwxrwx 1 root root 0 Oct 10 02:15 net -> net:[4026531956]
+lrwxrwxrwx 1 root root 0 Oct 10 02:15 pid -> pid:[4026531836]
+lrwxrwxrwx 1 root root 0 Oct 10 02:15 user -> user:[4026531837]
+lrwxrwxrwx 1 root root 0 Oct 10 02:15 uts -> uts:[4026531838]
+sh>^[p^[p^[p         ^P  				p ^[p^[p^[p^[p^[p^[p^[p^[p^[p^[p^[p                                 clone ipc
+sh>echo $$
+26278
+sh>ls -l /proc/26278/ns
+total 0
+lrwxrwxrwx 1 root root 0 Oct 10 02:16 ipc -> ipc:[4026532155]
+lrwxrwxrwx 1 root root 0 Oct 10 02:16 mnt -> mnt:[4026531840]
+lrwxrwxrwx 1 root root 0 Oct 10 02:16 net -> net:[4026531956]
+lrwxrwxrwx 1 root root 0 Oct 10 02:16 pid -> pid:[4026531836]
+lrwxrwxrwx 1 root root 0 Oct 10 02:16 user -> user:[4026531837]
+lrwxrwxrwx 1 root root 0 Oct 10 02:16 uts -> uts:[4026531838]
+sh>exit
+sh>raa=  e  eadlink /proc/26266/ns/mn                          clone ns
+sh>echo $$
+26285
+sh>ls -l /proc/26285/ns
+total 0
+lrwxrwxrwx 1 root root 0 Oct 10 02:19 ipc -> ipc:[4026531839]
+lrwxrwxrwx 1 root root 0 Oct 10 02:19 mnt -> mnt:[4026532155]
+lrwxrwxrwx 1 root root 0 Oct 10 02:19 net -> net:[4026531956]
+lrwxrwxrwx 1 root root 0 Oct 10 02:19 pid -> pid:[4026531836]
+lrwxrwxrwx 1 root root 0 Oct 10 02:19 user -> user:[4026531837]
+lrwxrwxrwx 1 root root 0 Oct 10 02:19 uts -> uts:[4026531838]
+sh>exit
+sh>clone pid
+sh>echo $$
+1
+sh>exit
+sh>clone uts
+sh>echo
+
+sh>echo $$
+26291
+sh>ls -l proc/26291/ns
+ls: cannot access proc/26291/ns: No such file or directory
+sh>ls -1 /proc/26291/ns
+ipc
+mnt
+net
+pid
+user
+uts
+sh>ls -l /proc/26291/ns
+total 0
+lrwxrwxrwx 1 root root 0 Oct 10 02:21 ipc -> ipc:[4026531839]
+lrwxrwxrwx 1 root root 0 Oct 10 02:21 mnt -> mnt:[4026531840]
+lrwxrwxrwx 1 root root 0 Oct 10 02:21 net -> net:[4026531956]
+lrwxrwxrwx 1 root root 0 Oct 10 02:21 pid -> pid:[4026531836]
+lrwxrwxrwx 1 root root 0 Oct 10 02:21 user -> user:[4026531837]
+lrwxrwxrwx 1 root root 0 Oct 10 02:21 uts -> uts:[4026532155]
+sh>exit
+sh>clone qs
+sh>ls -l /proc
+total 0
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 1
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 10
+dr-xr-xr-x  9 root       root                0 Oct  8 02:53 10103
+dr-xr-xr-x  9 www-data   www-data            0 Oct  8 02:53 10314
+dr-xr-xr-x  9 www-data   www-data            0 Oct  8 02:53 10315
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 1035
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 1038
+dr-xr-xr-x  9 root       root                0 Oct  8 02:59 10384
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 1042
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 1043
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 1045
+dr-xr-xr-x  9 root       root                0 Oct  8 02:59 10525
+dr-xr-xr-x  9 gitlog     nogroup             0 Oct  8 02:59 10526
+dr-xr-xr-x  9 gitdaemon  nogroup             0 Oct  8 02:59 10527
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 107
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 108
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 1092
+dr-xr-xr-x  9 daemon     daemon              0 Oct  8 02:42 1094
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 1095
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 11
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 1143
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 12
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 13
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 1316
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 14
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 1451
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 15
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 1510
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 156
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 157
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 16
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 17
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 18
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 19
+dr-xr-xr-x  9 root       root                0 Oct  9 05:21 19920
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 2
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 20
+dr-xr-xr-x  9 root       root                0 Oct  9 05:25 20043
+dr-xr-xr-x  9 vagrant    vagrant             0 Oct  9 05:51 20144
+dr-xr-xr-x  9 vagrant    vagrant             0 Oct  9 05:25 20145
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 21
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 22
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 23
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 25
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 26
+dr-xr-xr-x  9 vagrant    vagrant             0 Oct 10 02:22 26237
+dr-xr-xr-x  9 vagrant    vagrant             0 Oct 10 02:22 26238
+dr-xr-xr-x  9 vagrant    vagrant             0 Oct 10 02:22 26239
+dr-xr-xr-x  9 root       vagrant             0 Oct 10 02:12 26265
+dr-xr-xr-x  9 root       root                0 Oct 10 02:12 26266
+dr-xr-xr-x  9 root       root                0 Oct 10 02:22 26298
+dr-xr-xr-x  9 root       root                0 Oct 10 02:22 26299
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 27
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 28
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 29
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 3
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 30
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 31
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 356
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 360
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 389
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 398
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 4
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 43
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 44
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 5
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 511
+dr-xr-xr-x  9 statd      nogroup             0 Oct  8 02:43 548
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 551
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 575
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 6
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 64
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 65
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 7
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 797
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 8
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 841
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 880
+dr-xr-xr-x  9 messagebus messagebus          0 Oct  8 02:42 891
+dr-xr-xr-x  9 root       root                0 Oct  8 02:43 9
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 906
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 934
+dr-xr-xr-x  9 syslog     syslog              0 Oct  8 02:42 938
+dr-xr-xr-x  9 root       root                0 Oct  8 02:42 954
+dr-xr-xr-x  4 root       root                0 Oct 10 02:22 acpi
+-r--r--r--  1 root       root                0 Oct 10 02:22 buddyinfo
+dr-xr-xr-x  4 root       root                0 Oct 10 02:22 bus
+-r--r--r--  1 root       root                0 Oct 10 02:22 cgroups
+-r--r--r--  1 root       root                0 Oct 10 02:22 cmdline
+-r--r--r--  1 root       root                0 Oct 10 02:22 consoles
+-r--r--r--  1 root       root                0 Oct 10 02:22 cpuinfo
+-r--r--r--  1 root       root                0 Oct 10 02:22 crypto
+-r--r--r--  1 root       root                0 Oct 10 02:22 devices
+-r--r--r--  1 root       root                0 Oct 10 02:22 diskstats
+-r--r--r--  1 root       root                0 Oct 10 02:22 dma
+dr-xr-xr-x  2 root       root                0 Oct 10 02:22 driver
+-r--r--r--  1 root       root                0 Oct 10 02:22 execdomains
+-r--r--r--  1 root       root                0 Oct 10 02:22 fb
+-r--r--r--  1 root       root                0 Oct 10 02:22 filesystems
+dr-xr-xr-x  8 root       root                0 Oct 10 02:22 fs
+-r--r--r--  1 root       root                0 Oct 10 02:22 interrupts
+-r--r--r--  1 root       root                0 Oct 10 02:22 iomem
+-r--r--r--  1 root       root                0 Oct 10 02:22 ioports
+dr-xr-xr-x  2 root       root                0 Oct 10 02:22 ipmi
+dr-xr-xr-x 18 root       root                0 Oct 10 02:22 irq
+-r--r--r--  1 root       root                0 Oct 10 02:22 kallsyms
+-r--------  1 root       root       1069543424 Oct 10 02:22 kcore
+-r--r--r--  1 root       root                0 Oct 10 02:22 keys
+-r--r--r--  1 root       root                0 Oct 10 02:22 key-users
+-r--------  1 root       root                0 Oct  8 02:42 kmsg
+-r--------  1 root       root                0 Oct 10 02:22 kpagecount
+-r--------  1 root       root                0 Oct 10 02:22 kpageflags
+-rw-r--r--  1 root       root                0 Oct 10 02:22 latency_stats
+-r--r--r--  1 root       root                0 Oct 10 02:22 loadavg
+-r--r--r--  1 root       root                0 Oct 10 02:22 locks
+-r--r--r--  1 root       root                0 Oct 10 02:22 mdstat
+-r--r--r--  1 root       root                0 Oct 10 02:22 meminfo
+-r--r--r--  1 root       root                0 Oct 10 02:22 misc
+-r--r--r--  1 root       root                0 Oct 10 02:22 modules
+lrwxrwxrwx  1 root       root               11 Oct 10 02:22 mounts -> self/mounts
+-rw-r--r--  1 root       root                0 Oct 10 02:22 mtrr
+lrwxrwxrwx  1 root       root                8 Oct 10 02:22 net -> self/net
+-r--r--r--  1 root       root                0 Oct 10 02:22 pagetypeinfo
+-r--r--r--  1 root       root                0 Oct 10 02:22 partitions
+-r--r--r--  1 root       root                0 Oct 10 02:22 sched_debug
+-r--r--r--  1 root       root                0 Oct 10 02:22 schedstat
+dr-xr-xr-x  3 root       root                0 Oct 10 02:22 scsi
+lrwxrwxrwx  1 root       root                0 Oct  8 02:43 self -> 26299
+-r--------  1 root       root                0 Oct 10 02:22 slabinfo
+-r--r--r--  1 root       root                0 Oct 10 02:22 softirqs
+-r--r--r--  1 root       root                0 Oct 10 02:22 stat
+-r--r--r--  1 root       root                0 Oct 10 02:22 swaps
+dr-xr-xr-x  1 root       root                0 Oct  8 02:43 sys
+--w-------  1 root       root                0 Oct 10 02:22 sysrq-trigger
+dr-xr-xr-x  2 root       root                0 Oct 10 02:22 sysvipc
+-r--r--r--  1 root       root                0 Oct 10 02:22 timer_list
+-rw-r--r--  1 root       root                0 Oct 10 02:22 timer_stats
+dr-xr-xr-x  4 root       root                0 Oct 10 02:22 tty
+-r--r--r--  1 root       root                0 Oct 10 02:22 uptime
+-r--r--r--  1 root       root                0 Oct 10 02:22 version
+-r--r--r--  1 root       root                0 Oct 10 02:22 version_signature
+-r--------  1 root       root                0 Oct 10 02:22 vmallocinfo
+-r--r--r--  1 root       root                0 Oct 10 02:22 vmstat
+-r--r--r--  1 root       root                0 Oct 10 02:22 zoneinfo
+sh>ls /proc
+1      1038   10526  1095  14	 16	20     23     26265  29   389  511  65	 891  acpi	 cpuinfo    execdomains  ioports   key-users	  locks    mtrr		 scsi	   sys		  uptime
+10     10384  10527  11    1451  17	20043  25     26266  3	  398  548  7	 9    buddyinfo  crypto     fb		 ipmi	   kmsg		  mdstat   net		 self	   sysrq-trigger  version
+10103  1042   107    1143  15	 18	20144  26     26298  30   4    551  797  906  bus	 devices    filesystems  irq	   kpagecount	  meminfo  pagetypeinfo  slabinfo  sysvipc	  version_signature
+10314  1043   108    12    1510  19	20145  26237  26300  31   43   575  8	 934  cgroups	 diskstats  fs		 kallsyms  kpageflags	  misc	   partitions	 softirqs  timer_list	  vmallocinfo
+10315  1045   1092   13    156	 19920	21     26238  27     356  44   6    841  938  cmdline	 dma	    interrupts	 kcore	   latency_stats  modules  sched_debug	 stat	   timer_stats	  vmstat
+1035   10525  1094   1316  157	 2	22     26239  28     360  5    64   880  954  consoles	 driver     iomem	 keys	   loadavg	  mounts   schedstat	 swaps	   tty		  zoneinfo
+sh>ps
+  PID TTY          TIME CMD
+26265 pts/1    00:00:00 sudo
+26266 pts/1    00:00:00 a.out
+26298 pts/1    00:00:00 a.out
+26302 pts/1    00:00:00 ps
+sh>exit
+sh>clone ns
+sh>ls
+a.out  minishell.c  testingOnRaysMinishell
+sh>cd ..
+sh>ls
+dead.letter  minishell
+sh>pwd
+/home/vagrant
+sh>pid  s
+  PID TTY          TIME CMD
+26265 pts/1    00:00:00 sudo
+26266 pts/1    00:00:00 a.out
+26303 pts/1    00:00:00 a.out
+26307 pts/1    00:00:00 ps
+sh>exit
+sh>ps
+  PID TTY          TIME CMD
+26265 pts/1    00:00:00 sudo
+26266 pts/1    00:00:00 a.out
+26308 pts/1    00:00:00 ps
+sh>exit
+]0;vagrant@vagrant-ubuntu-trusty-32: ~/minishellvagrant@vagrant-ubuntu-trusty-32:~/minishell$ exit
+Script done on Thu 10 Oct 2019 02:25:21 AM UTC
